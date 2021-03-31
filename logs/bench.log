@@ -1,0 +1,16 @@
+2020-07-07 07:01:33,742 INFO Getting app erpnext
+2020-07-07 07:01:40,197 INFO installing erpnext
+2021-02-21 15:13:06,262 INFO Getting app bluetheme
+2021-02-21 15:13:09,637 INFO installing bluetheme
+2021-03-07 10:55:46,994 INFO creating new app meeting
+2021-03-07 10:56:29,208 INFO installing meeting
+2021-03-11 01:53:54,211 INFO creating new app library_management
+2021-03-11 01:54:23,747 INFO installing library_management
+2021-03-23 03:23:16,584 INFO Getting app POS-Awesome
+2021-03-23 03:23:19,345 INFO installing posawesome
+2021-03-23 03:26:48,123 INFO installing frappe
+2021-03-23 03:26:53,122 INFO installing erpnext
+2021-03-23 03:26:58,799 INFO installing bluetheme
+2021-03-23 03:27:02,902 INFO installing meeting
+2021-03-23 03:27:07,000 INFO installing library_management
+2021-03-23 03:27:11,052 INFO installing posawesome

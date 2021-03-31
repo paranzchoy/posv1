@@ -1,0 +1,18 @@
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Redis connection to localhost:12000 failed - connect ECONNREFUSED 127.0.0.1:12000
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1191:14)
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Redis connection to localhost:12000 failed - read ECONNRESET
+    at TCP.onread (net.js:622:25)
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Redis connection to localhost:12000 failed - read ECONNRESET
+    at TCP.onread (net.js:622:25)
