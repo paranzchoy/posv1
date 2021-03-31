@@ -390,3 +390,258 @@ Traceback (most recent call last):
     raise raise_exception(msg)
 frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 13:42:07.093265, 2021-03-31 13:42:50.868776). Please refresh to get the latest document.
 
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/website/context.py", line 48, in update_controller_context
+    ret = module.get_context(context)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/www/printview.py", line 42, in get_context
+    no_letterhead=frappe.form_dict.no_letterhead),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/www/printview.py", line 159, in get_rendered_template
+    html = template.render(args, filters={"len": len})
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "<template>", line 19, in top-level template code
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/sandbox.py", line 438, in call
+    if not __self.is_safe_callable(__obj):
+  File "/home/frappe/frappe-bench/env/lib/python3.6/site-packages/jinja2/sandbox.py", line 340, in is_safe_callable
+    return not (getattr(obj, 'unsafe_callable', False) or
+jinja2.exceptions.UndefinedError: '__' is undefined
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 312, in _save
+    self._validate()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 462, in _validate
+    self._validate_selects()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/base_document.py", line 551, in _validate_selects
+    value, comma_options))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError:  Print Format Type cannot be "Server". It should be one of "Jinja", "JS"
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 312, in _save
+    self._validate()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 462, in _validate
+    self._validate_selects()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/base_document.py", line 551, in _validate_selects
+    value, comma_options))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError:  Print Format Type cannot be "Server". It should be one of "Jinja", "JS"
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:19:23.337154, 2021-03-31 14:21:28.478579). Please refresh to get the latest document.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:19:23.337154, 2021-03-31 14:21:28.478579). Please refresh to get the latest document.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/posawesome/posawesome/posawesome/api/posapp.py", line 292, in submit_invoice
+    invoice_doc.submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 867, in submit
+    self._submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 856, in _submit
+    self.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 326, in _save
+    self.run_post_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 930, in run_post_save_methods
+    self.run_method("on_submit")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 174, in on_submit
+    self.update_stock_ledger()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py", line 351, in update_stock_ledger
+    self.make_sl_entries(sl_entries)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py", line 283, in make_sl_entries
+    make_sl_entries(sl_entries, is_amended, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 40, in make_sl_entries
+    update_bin(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py", line 182, in update_bin
+    bin.update_stock(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.py", line 35, in update_stock
+    }, allow_negative_stock=allow_negative_stock, via_landed_cost_voucher=via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 109, in __init__
+    self.build()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 119, in build
+    self.raise_exceptions()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 431, in raise_exceptions
+    frappe.throw(msg, NegativeStockError, title='Insufficient Stock')
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+erpnext.stock.stock_ledger.NegativeStockError: 1.0 units of <a href="#Form/Item/A╤EJO GOLD RUM 700ML" style="font-weight: bold;">Item A╤EJO GOLD RUM 700ML</a> needed in <a href="#Form/Warehouse/Stores - RSE" style="font-weight: bold;">Warehouse Stores - RSE</a> to complete this transaction.
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 1364, in get_bank_cash_account
+    .format(mode_of_payment))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError: Please set default Cash or Bank account in Mode of Payment Credit Card
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 309, in _save
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.py", line 18, in validate
+    self.check_default_payment()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.py", line 65, in check_default_payment
+    frappe.throw(_("Multiple default mode of payment is not allowed"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError: Multiple default mode of payment is not allowed
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 309, in _save
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.py", line 18, in validate
+    self.check_default_payment()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.py", line 65, in check_default_payment
+    frappe.throw(_("Multiple default mode of payment is not allowed"))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError: Multiple default mode of payment is not allowed
+
