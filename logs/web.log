@@ -645,3 +645,650 @@ Traceback (most recent call last):
     raise raise_exception(msg)
 frappe.exceptions.ValidationError: Multiple default mode of payment is not allowed
 
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:29:00.981393, 2021-03-31 14:29:52.009076). Please refresh to get the latest document.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:29:00.981393, 2021-03-31 14:29:52.009076). Please refresh to get the latest document.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/posawesome/posawesome/posawesome/api/posapp.py", line 292, in submit_invoice
+    invoice_doc.submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 867, in submit
+    self._submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 856, in _submit
+    self.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 326, in _save
+    self.run_post_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 930, in run_post_save_methods
+    self.run_method("on_submit")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 174, in on_submit
+    self.update_stock_ledger()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py", line 351, in update_stock_ledger
+    self.make_sl_entries(sl_entries)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py", line 283, in make_sl_entries
+    make_sl_entries(sl_entries, is_amended, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 40, in make_sl_entries
+    update_bin(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py", line 182, in update_bin
+    bin.update_stock(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.py", line 35, in update_stock
+    }, allow_negative_stock=allow_negative_stock, via_landed_cost_voucher=via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 109, in __init__
+    self.build()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 119, in build
+    self.raise_exceptions()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 431, in raise_exceptions
+    frappe.throw(msg, NegativeStockError, title='Insufficient Stock')
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+erpnext.stock.stock_ledger.NegativeStockError: 2.0 units of <a href="#Form/Item/3-IN-1 COCOA 10G SACHET" style="font-weight: bold;">Item 3-IN-1 COCOA 10G SACHET</a> needed in <a href="#Form/Warehouse/Stores - RSE" style="font-weight: bold;">Warehouse Stores - RSE</a> to complete this transaction.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 309, in _save
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 61, in validate
+    self.password_strength_test()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 446, in password_strength_test
+    handle_password_test_fail(result)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 926, in handle_password_test_fail
+    frappe.throw(' '.join([_('Invalid Password:'), warning, suggestions]))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError: Invalid Password: This is a very common password. <br>Hint: Include symbols, numbers and capital letters in the password<br>
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 309, in _save
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 61, in validate
+    self.password_strength_test()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 446, in password_strength_test
+    handle_password_test_fail(result)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 926, in handle_password_test_fail
+    frappe.throw(' '.join([_('Invalid Password:'), warning, suggestions]))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.ValidationError: Invalid Password: This is a very common password. <br>Hint: Include symbols, numbers and capital letters in the password<br>
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 204, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 270, in send_welcome_mail_to_user
+    site_url=get_url(),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 296, in send_login_mail
+    delayed=(not now) if now!=None else self.flags.delay_emails, retry=3)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 487, in sendmail
+    inline_images=inline_images, header=header, print_letterhead=print_letterhead)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/queue.py", line 76, in send
+    email_account = get_outgoing_email_account(True, append_to=reference_doctype, sender=sender)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/smtp.py", line 86, in get_outgoing_email_account
+    frappe.OutgoingEmailError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/load.py", line 34, in getdoc
+    doc = frappe.get_doc(doctype, name)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 752, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 149, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: User User not found
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/load.py", line 34, in getdoc
+    doc = frappe.get_doc(doctype, name)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 752, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 71, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 106, in __init__
+    self.load_from_db()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 149, in load_from_db
+    frappe.throw(_("{0} {1} not found").format(_(self.doctype), self.name), frappe.DoesNotExistError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.DoesNotExistError: User User not found
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 204, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 270, in send_welcome_mail_to_user
+    site_url=get_url(),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 296, in send_login_mail
+    delayed=(not now) if now!=None else self.flags.delay_emails, retry=3)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 487, in sendmail
+    inline_images=inline_images, header=header, print_letterhead=print_letterhead)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/queue.py", line 76, in send
+    email_account = get_outgoing_email_account(True, append_to=reference_doctype, sender=sender)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/smtp.py", line 86, in get_outgoing_email_account
+    frappe.OutgoingEmailError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 204, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 270, in send_welcome_mail_to_user
+    site_url=get_url(),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 296, in send_login_mail
+    delayed=(not now) if now!=None else self.flags.delay_emails, retry=3)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 487, in sendmail
+    inline_images=inline_images, header=header, print_letterhead=print_letterhead)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/queue.py", line 76, in send
+    email_account = get_outgoing_email_account(True, append_to=reference_doctype, sender=sender)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/smtp.py", line 86, in get_outgoing_email_account
+    frappe.OutgoingEmailError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 204, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 270, in send_welcome_mail_to_user
+    site_url=get_url(),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 296, in send_login_mail
+    delayed=(not now) if now!=None else self.flags.delay_emails, retry=3)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 487, in sendmail
+    inline_images=inline_images, header=header, print_letterhead=print_letterhead)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/queue.py", line 76, in send
+    email_account = get_outgoing_email_account(True, append_to=reference_doctype, sender=sender)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/smtp.py", line 86, in get_outgoing_email_account
+    frappe.OutgoingEmailError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:44:18.821094, 2021-03-31 14:44:41.327977). Please refresh to get the latest document.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/desk/form/save.py", line 22, in savedocs
+    doc.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 303, in _save
+    self.check_if_latest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 666, in check_if_latest
+    raise_exception=frappe.TimestampMismatchError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.TimestampMismatchError: Error: Document has been modified after you have opened it (2021-03-31 14:44:18.821094, 2021-03-31 14:44:41.327977). Please refresh to get the latest document.
+
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 126, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 51, in __init__
+    frappe.local.login_manager = LoginManager()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 105, in __init__
+    if self.login()==False: return
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 126, in login
+    self.authenticate(user=user, pwd=pwd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 215, in authenticate
+    self.check_if_enabled(user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 249, in check_if_enabled
+    self.fail('User disabled or missing', user=user)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/auth.py", line 266, in fail
+    raise frappe.AuthenticationError
+frappe.exceptions.AuthenticationError
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 204, in send_password_notification
+    self.send_welcome_mail_to_user()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 270, in send_welcome_mail_to_user
+    site_url=get_url(),
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/user/user.py", line 296, in send_login_mail
+    delayed=(not now) if now!=None else self.flags.delay_emails, retry=3)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 487, in sendmail
+    inline_images=inline_images, header=header, print_letterhead=print_letterhead)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/queue.py", line 76, in send
+    email_account = get_outgoing_email_account(True, append_to=reference_doctype, sender=sender)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/email/smtp.py", line 86, in get_outgoing_email_account
+    frappe.OutgoingEmailError)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.OutgoingEmailError: Please setup default Email Account from Setup > Email > Email Account
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/posawesome/posawesome/posawesome/api/posapp.py", line 292, in submit_invoice
+    invoice_doc.submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 867, in submit
+    self._submit()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 856, in _submit
+    self.save()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 326, in _save
+    self.run_post_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 930, in run_post_save_methods
+    self.run_method("on_submit")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py", line 174, in on_submit
+    self.update_stock_ledger()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/selling_controller.py", line 351, in update_stock_ledger
+    self.make_sl_entries(sl_entries)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py", line 283, in make_sl_entries
+    make_sl_entries(sl_entries, is_amended, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 40, in make_sl_entries
+    update_bin(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/utils.py", line 182, in update_bin
+    bin.update_stock(args, allow_negative_stock, via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.py", line 35, in update_stock
+    }, allow_negative_stock=allow_negative_stock, via_landed_cost_voucher=via_landed_cost_voucher)
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 109, in __init__
+    self.build()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 119, in build
+    self.raise_exceptions()
+  File "/home/frappe/frappe-bench/apps/erpnext/erpnext/stock/stock_ledger.py", line 431, in raise_exceptions
+    frappe.throw(msg, NegativeStockError, title='Insufficient Stock')
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+erpnext.stock.stock_ledger.NegativeStockError: 2.0 units of <a href="#Form/Item/KOPIKO ICED BROWN 240ML" style="font-weight: bold;">Item KOPIKO ICED BROWN 240ML</a> needed in <a href="#Form/Warehouse/Stores - RSE" style="font-weight: bold;">Warehouse Stores - RSE</a> to complete this transaction.
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 200, in upload_file
+    ret.save(ignore_permissions=ignore_permissions)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 296, in _save
+    self.insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 230, in insert
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 93, in validate
+    self.validate_duplicate_entry()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 187, in validate_duplicate_entry
+    frappe.FileAlreadyAttachedException)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.FileAlreadyAttachedException: Same file has already been attached to the record
+
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 200, in upload_file
+    ret.save(ignore_permissions=ignore_permissions)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 296, in _save
+    self.insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 230, in insert
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 93, in validate
+    self.validate_duplicate_entry()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 187, in validate_duplicate_entry
+    frappe.FileAlreadyAttachedException)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.FileAlreadyAttachedException: Same file has already been attached to the record
+Traceback (most recent call last):
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/app.py", line 64, in application
+    response = frappe.api.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/api.py", line 59, in handle
+    return frappe.handler.handle()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 24, in handle
+    data = execute_cmd(cmd)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 63, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 1054, in call
+    return fn(*args, **newargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/handler.py", line 200, in upload_file
+    ret.save(ignore_permissions=ignore_permissions)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 273, in save
+    return self._save(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 296, in _save
+    self.insert()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 230, in insert
+    self.run_before_save_methods()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 896, in run_before_save_methods
+    self.run_method("validate")
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 797, in run_method
+    out = Document.hook(fn)(self, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1071, in composer
+    return composed(self, method, *args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 1054, in runner
+    add_to_return_value(self, fn(self, *args, **kwargs))
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/model/document.py", line 791, in <lambda>
+    fn = lambda self, *args, **kwargs: getattr(self, method)(*args, **kwargs)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 93, in validate
+    self.validate_duplicate_entry()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/core/doctype/file/file.py", line 187, in validate_duplicate_entry
+    frappe.FileAlreadyAttachedException)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 376, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable)
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 355, in msgprint
+    _raise_exception()
+  File "/home/frappe/frappe-bench/apps/frappe/frappe/__init__.py", line 315, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.FileAlreadyAttachedException: Same file has already been attached to the record
+
+
